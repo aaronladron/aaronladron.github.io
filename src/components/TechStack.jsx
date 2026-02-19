@@ -242,7 +242,7 @@ export default function TechStack() {
           </div>
           <div>
             <div className="text-3xl mb-3">🎯</div>
-            <h4 className="font-semibold text-white mb-2">Objectif 2026</h4>
+            <h4 className="font-semibold text-white mb-2">Objectif 2027</h4>
             <p className="text-sm text-gray-400">
               Master en cybersécurité
               <br />
