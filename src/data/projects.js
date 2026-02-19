@@ -17,7 +17,7 @@ export const projects = [
       'Code structuré et maintenable',
       'Respect des standards web'
     ],
-    github: 'https://github.com/aaronladron/klivio'
+    github: 'https://github.com/aaronladron/Klivio-site'
   },
   {
     id: 2,
@@ -36,7 +36,7 @@ export const projects = [
       'Export PDF haute qualité',
       'Sauvegarde et modification des CV'
     ],
-    github: 'https://github.com/aaronladron/cv-generator'
+    github: 'https://github.com/aaronladron/Generateur-CV'
   },
   {
     id: 3,
@@ -56,7 +56,7 @@ export const projects = [
       'Interface admin intuitive',
       'Architecture MVC structurée'
     ],
-    github: 'https://github.com/aaronladron/my-cinema'
+    github: 'https://github.com/aaronladron/My-Cin-ma'
   },
 
   // Projets Personnels
