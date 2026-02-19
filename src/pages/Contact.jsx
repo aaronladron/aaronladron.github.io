@@ -112,28 +112,28 @@ export default function Contact() {
     <>
       <AnimatedBackground />
       
-      <div className="relative pt-32 pb-20 overflow-hidden">
+      <div className="relative pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 overflow-hidden">
         {/* Floating particles background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {floatingParticles}
         </div>
 
-        <div className="max-w-4xl mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="mb-20 text-center"
+            className="mb-12 sm:mb-16 md:mb-20 text-center"
           >
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ duration: 0.5, delay: 0.2, type: 'spring', stiffness: 100 }}
-              className="inline-block mb-4"
+              className="inline-block mb-3 sm:mb-4"
             >
               <motion.span 
-                className="text-6xl"
+                className="text-5xl sm:text-6xl"
                 animate={{ rotate: [0, 10, -10, 0], scale: [1, 1.15, 1] }}
                 transition={{ duration: 3, repeat: Infinity }}
               >
@@ -142,7 +142,7 @@ export default function Contact() {
             </motion.div>
 
             <motion.h1 
-              className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400"
               animate={{ backgroundPosition: ['0%', '100%'] }}
               transition={{ duration: 8, repeat: Infinity }}
             >
@@ -150,7 +150,7 @@ export default function Contact() {
             </motion.h1>
 
             <motion.p 
-              className="text-gray-400 text-lg max-w-2xl mx-auto"
+              className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -160,7 +160,7 @@ export default function Contact() {
           </motion.div>
 
           {/* Contact Channels */}
-          <div className="grid md:grid-cols-3 gap-6 mb-20">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-12 sm:mb-16 md:mb-20">
             {contactChannels.map((channel, idx) => (
               <motion.a
                 key={idx}
@@ -171,7 +171,7 @@ export default function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: channel.delay, duration: 0.6 }}
                 whileHover={{ scale: 1.05, y: -10 }}
-                className="group relative p-8 rounded-2xl border border-gray-800 bg-white/5 backdrop-blur-xl overflow-hidden hover:border-gray-700 transition-all"
+                className="group relative p-6 sm:p-8 rounded-2xl border border-gray-800 bg-white/5 backdrop-blur-xl overflow-hidden hover:border-gray-700 transition-all"
               >
                 {/* Animated glow */}
                 <motion.div
@@ -188,7 +188,7 @@ export default function Contact() {
                 {/* Content */}
                 <div className="relative z-10">
                   <motion.div 
-                    className="text-4xl mb-4 inline-block"
+                    className="text-3xl sm:text-4xl mb-3 sm:mb-4 inline-block"
                     whileHover={{ scale: 1.3, rotate: 15 }}
                     animate={{ y: [0, -5, 0] }}
                     transition={{ duration: 2, repeat: Infinity, delay: idx * 0.2 }}
@@ -196,14 +196,14 @@ export default function Contact() {
                     {channel.emoji}
                   </motion.div>
                   <motion.h3 
-                    className="text-white font-bold text-xl mb-2"
+                    className="text-white font-bold text-lg sm:text-xl mb-2"
                     animate={{ opacity: [0.8, 1, 0.8] }}
                     transition={{ duration: 3, repeat: Infinity }}
                   >
                     {channel.title}
                   </motion.h3>
                   <motion.p 
-                    className="text-gray-400 text-sm"
+                    className="text-gray-400 text-xs sm:text-sm break-all"
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 2, repeat: Infinity }}
                   >
@@ -227,7 +227,7 @@ export default function Contact() {
             initial={{ opacity: 0, scaleX: 0 }}
             animate={{ opacity: 1, scaleX: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-            className="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-20 relative"
+            className="h-px bg-gradient-to-r from-transparent via-gray-700 to-transparent mb-12 sm:mb-16 md:mb-20 relative"
           >
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-transparent via-purple-500 to-transparent"
@@ -242,16 +242,16 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 sm:mb-12">
               <motion.h2 
-                className="text-3xl md:text-4xl font-bold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 sm:mb-3 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400"
                 animate={{ scale: [1, 1.05, 1] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
                 Ou envoie-moi un message
               </motion.h2>
               <motion.p 
-                className="text-gray-400"
+                className="text-gray-400 text-sm sm:text-base"
                 animate={{ opacity: [0.6, 1, 0.6] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
@@ -261,7 +261,7 @@ export default function Contact() {
 
             {/* Form Card */}
             <motion.div 
-              className="relative p-8 md:p-12 rounded-3xl border border-gray-800 bg-white/5 backdrop-blur-xl overflow-hidden"
+              className="relative p-5 sm:p-6 md:p-8 lg:p-12 rounded-2xl sm:rounded-3xl border border-gray-800 bg-white/5 backdrop-blur-xl overflow-hidden"
               whileHover={{ borderColor: 'rgba(255,255,255,0.2)' }}
             >
               {/* Animated background glow */}
@@ -278,16 +278,16 @@ export default function Contact() {
                 transition={{ duration: 3, repeat: Infinity }}
               />
 
-              <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
+              <form onSubmit={handleSubmit} className="relative z-10 space-y-5 sm:space-y-6">
                 {/* Error Message */}
                 {error && (
                   <motion.div
                     initial={{ opacity: 0, y: -10, scale: 0.9 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="p-4 rounded-xl bg-red-500/10 border border-red-500/30"
+                    className="p-3 sm:p-4 rounded-xl bg-red-500/10 border border-red-500/30"
                   >
-                    <p className="text-red-400 text-sm">❌ {error}</p>
+                    <p className="text-red-400 text-xs sm:text-sm">❌ {error}</p>
                   </motion.div>
                 )}
 
@@ -297,10 +297,10 @@ export default function Contact() {
                     initial={{ opacity: 0, y: -10, scale: 0.9 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: -10 }}
-                    className="p-4 rounded-xl bg-green-500/10 border border-green-500/30"
+                    className="p-3 sm:p-4 rounded-xl bg-green-500/10 border border-green-500/30"
                   >
                     <motion.p 
-                      className="text-green-400 text-sm font-semibold"
+                      className="text-green-400 text-xs sm:text-sm font-semibold"
                       animate={{ scale: [1, 1.05, 1] }}
                       transition={{ duration: 0.5, repeat: Infinity }}
                     >
@@ -310,7 +310,7 @@ export default function Contact() {
                 )}
 
                 {/* Two Column Grid */}
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
                   <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -365,7 +365,7 @@ export default function Contact() {
                   transition={{ delay: 0.7 }}
                 >
                   <motion.label 
-                    className="block text-sm font-semibold text-white mb-3"
+                    className="block text-xs sm:text-sm font-semibold text-white mb-2 sm:mb-3"
                     whileHover={{ color: '#d8b4fe' }}
                   >
                     Sujet
@@ -378,7 +378,7 @@ export default function Contact() {
                     required
                     placeholder="Quel est le sujet ?"
                     whileFocus={{ scale: 1.02 }}
-                    className="w-full px-4 py-3 rounded-lg bg-white/5 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/20 transition-all"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg bg-white/5 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/20 transition-all"
                   />
                 </motion.div>
 
@@ -389,7 +389,7 @@ export default function Contact() {
                   transition={{ delay: 0.75 }}
                 >
                   <motion.label 
-                    className="block text-sm font-semibold text-white mb-3"
+                    className="block text-xs sm:text-sm font-semibold text-white mb-2 sm:mb-3"
                     whileHover={{ color: '#d8b4fe' }}
                   >
                     Message
@@ -402,7 +402,7 @@ export default function Contact() {
                     placeholder="Raconte-moi..."
                     rows="5"
                     whileFocus={{ scale: 1.02 }}
-                    className="w-full px-4 py-3 rounded-lg bg-white/5 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/20 transition-all resize-none"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg bg-white/5 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/20 transition-all resize-none"
                   />
                 </motion.div>
 
@@ -415,7 +415,7 @@ export default function Contact() {
                   whileTap={{ scale: 0.95 }}
                   type="submit"
                   disabled={submitted || loading}
-                  className="w-full py-4 rounded-lg font-bold text-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70 disabled:opacity-50 transition-all relative overflow-hidden group"
+                  className="w-full py-3 sm:py-4 rounded-lg font-bold text-base sm:text-lg bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/50 hover:shadow-purple-500/70 disabled:opacity-50 transition-all relative overflow-hidden group"
                 >
                   {/* Button shine effect */}
                   <motion.div
@@ -461,7 +461,7 @@ export default function Contact() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 0.8 }}
-            className="text-center text-gray-500 text-sm mt-12"
+            className="text-center text-gray-500 text-xs sm:text-sm mt-8 sm:mt-12"
           >
             <motion.span
               animate={{ opacity: [0.5, 1, 0.5] }}

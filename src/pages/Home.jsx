@@ -94,21 +94,21 @@ export default function Home() {
   }
 
   return (
-    <section className="min-h-screen bg-[#0a0a0a] flex items-center justify-center pt-20 px-4 relative overflow-hidden">
+    <section className="min-h-screen bg-[#0a0a0a] flex items-center justify-center pt-24 px-4 sm:px-6 relative overflow-hidden">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-gray-900/30 to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-gray-900/20 to-transparent"></div>
       </div>
 
-      <div className="max-w-7xl w-full mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+      <div className="max-w-7xl w-full mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
         
         {/* Left Side - Photo + Info */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col items-center lg:items-start space-y-6 -mt-12 lg:ml-8"
+          className="flex flex-col items-center lg:items-start space-y-4 sm:space-y-6 lg:ml-8"
         >
           {/* Name and Title */}
           <div className="text-center lg:text-left">
@@ -116,7 +116,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-5xl md:text-7xl font-light tracking-tight mb-4 text-white"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight mb-3 sm:mb-4 text-white"
             >
               Aaron Ladron
             </motion.h1>
@@ -124,10 +124,11 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="flex items-center gap-3 text-lg md:text-xl text-gray-400 font-light"
+              className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-base sm:text-lg md:text-xl text-gray-400 font-light"
             >
-              <div className="w-12 h-[1px] bg-gradient-to-r from-transparent to-gray-600"></div>
+              <div className="hidden sm:block w-12 h-[1px] bg-gradient-to-r from-transparent to-gray-600"></div>
               <span>Étudiant à Epitech</span>
+              <span className="hidden sm:inline">•</span>
               <span>Développeur Full Stack</span>
             </motion.div>
           </div>
@@ -143,7 +144,7 @@ export default function Home() {
             <div className="absolute -inset-1 bg-gradient-to-br from-white/5 to-gray-800/20 rounded-full blur-xl opacity-50 group-hover:opacity-70 transition duration-700"></div>
             
             {/* Photo Container */}
-            <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden border border-gray-800 group-hover:border-gray-700 transition-all duration-500">
+            <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border border-gray-800 group-hover:border-gray-700 transition-all duration-500">
               <img 
                 src={profileImage} 
                 alt="Aaron Ladron" 
@@ -157,7 +158,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex gap-3"
+            className="flex gap-2.5 sm:gap-3"
           >
             <a
               href="https://github.com/votre-username"
@@ -205,37 +206,37 @@ export default function Home() {
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex justify-center lg:justify-end"
+          className="flex justify-center lg:justify-end w-full"
         >
           <div className="w-full max-w-2xl">
             {/* Terminal Window */}
             <div className="bg-[#111111] rounded-lg overflow-hidden border border-gray-800/50 hover:border-gray-700 transition-all duration-500">
               {/* Terminal Header */}
-              <div className="bg-[#0d0d0d] px-4 py-3 flex items-center justify-between border-b border-gray-800/50">
-                <div className="flex items-center gap-3">
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 rounded-full bg-gray-700"></div>
-                    <div className="w-3 h-3 rounded-full bg-gray-700"></div>
-                    <div className="w-3 h-3 rounded-full bg-gray-700"></div>
+              <div className="bg-[#0d0d0d] px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between border-b border-gray-800/50">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="flex gap-1.5 sm:gap-2">
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gray-700"></div>
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gray-700"></div>
+                    <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gray-700"></div>
                   </div>
-                  <span className="text-gray-500 text-sm font-mono">terminal</span>
+                  <span className="text-gray-500 text-xs sm:text-sm font-mono">terminal</span>
                 </div>
                 <div className="text-gray-600 text-xs">zsh</div>
               </div>
               
               {/* Terminal Content */}
-              <div className="p-6 font-mono text-sm min-h-[450px] bg-[#111111]">
-                <div className="flex items-center gap-2 mb-3">
+              <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm min-h-[350px] sm:min-h-[450px] bg-[#111111]">
+                <div className="flex items-center gap-2 mb-2 sm:mb-3">
                   <span className="text-gray-500">$</span>
                   <span className="text-gray-400">~</span>
                 </div>
                 
-                <pre className="text-gray-300 whitespace-pre-wrap leading-relaxed">
+                <pre className="text-gray-300 whitespace-pre-wrap leading-relaxed text-xs sm:text-sm">
                   {terminalText}
                   {showCursor && <motion.span 
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="inline-block w-2 h-5 bg-green-400 ml-1"
+                    className="inline-block w-1.5 sm:w-2 h-4 sm:h-5 bg-green-400 ml-1"
                   />}
                 </pre>
 
@@ -245,13 +246,14 @@ export default function Home() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 2 }}
-                    className="mt-6 pt-4 border-t border-gray-800"
+                    className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-gray-800"
                   >
                     <div className="text-gray-600 text-xs space-y-1">
                       <div className="flex justify-between">
-                        <span>Last login: {new Date().toLocaleString('fr-FR')}</span>
+                        <span className="hidden sm:inline">Last login: {new Date().toLocaleString('fr-FR')}</span>
+                        <span className="sm:hidden">Last login: {new Date().toLocaleDateString('fr-FR')}</span>
                       </div>
-                      <div className="flex gap-4 mt-2">
+                      <div className="flex gap-3 sm:gap-4 mt-2">
                         <span className="text-purple-500">✓ System ready</span>
                         <span className="text-blue-500">◉ Online</span>
                       </div>
@@ -261,7 +263,7 @@ export default function Home() {
               </div>
 
               {/* Terminal Footer */}
-              <div className="bg-[#0d0d0d] px-4 py-2 border-t border-gray-800/50 flex items-center justify-between text-xs">
+              <div className="bg-[#0d0d0d] px-3 sm:px-4 py-1.5 sm:py-2 border-t border-gray-800/50 flex items-center justify-between text-xs">
                 <span className="text-gray-600 font-mono">aaron@portfolio</span>
                 <span className="text-gray-700">UTF-8</span>
               </div>
