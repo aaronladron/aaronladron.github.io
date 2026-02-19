@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import AnimatedBackground from '../components/AnimatedBackground'
 
 export default function Contact() {
@@ -12,36 +12,120 @@ export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [validationErrors, setValidationErrors] = useState({})
+  const lastSubmitTime = useRef(0)
+
+  // Validation functions
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
+  const sanitizeInput = (input) => {
+    return input.trim().replace(/[<>]/g, '')
+  }
+
+  const validateForm = () => {
+    const errors = {}
+    
+    // Name validation
+    if (!formData.name.trim()) {
+      errors.name = 'Le nom est requis'
+    } else if (formData.name.length < 2) {
+      errors.name = 'Le nom doit contenir au moins 2 caractères'
+    } else if (formData.name.length > 100) {
+      errors.name = 'Le nom est trop long (max 100 caractères)'
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      errors.email = 'L\'email est requis'
+    } else if (!validateEmail(formData.email)) {
+      errors.email = 'Email invalide'
+    } else if (formData.email.length > 200) {
+      errors.email = 'L\'email est trop long'
+    }
+
+    // Subject validation
+    if (!formData.subject.trim()) {
+      errors.subject = 'Le sujet est requis'
+    } else if (formData.subject.length < 3) {
+      errors.subject = 'Le sujet doit contenir au moins 3 caractères'
+    } else if (formData.subject.length > 200) {
+      errors.subject = 'Le sujet est trop long (max 200 caractères)'
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      errors.message = 'Le message est requis'
+    } else if (formData.message.length < 10) {
+      errors.message = 'Le message doit contenir au moins 10 caractères'
+    } else if (formData.message.length > 5000) {
+      errors.message = 'Le message est trop long (max 5000 caractères)'
+    }
+
+    return errors
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
     setError(null)
+    // Clear validation error for this field
+    if (validationErrors[name]) {
+      setValidationErrors(prev => {
+        const newErrors = { ...prev }
+        delete newErrors[name]
+        return newErrors
+      })
+    }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    
+    // Rate limiting: 1 message per 30 seconds
+    const now = Date.now()
+    if (now - lastSubmitTime.current < 30000) {
+      setError('Merci d\'attendre 30 secondes entre chaque envoi')
+      return
+    }
+
+    // Validate form
+    const errors = validateForm()
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors)
+      setError('Veuillez corriger les erreurs dans le formulaire')
+      return
+    }
+
     setLoading(true)
     setError(null)
+    setValidationErrors({})
 
     try {
-      const response = await fetch('https://formspree.io/f/xqedewka', {
+      // Sanitize inputs
+      const sanitizedData = {
+        name: sanitizeInput(formData.name),
+        email: sanitizeInput(formData.email),
+        subject: sanitizeInput(formData.subject),
+        message: sanitizeInput(formData.message)
+      }
+
+      const formspreeId = import.meta.env.VITE_FORMSPREE_ID || 'xqedewka'
+      const response = await fetch(`https://formspree.io/f/${formspreeId}`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          subject: formData.subject,
-          message: formData.message
-        })
+        body: JSON.stringify(sanitizedData)
       })
 
       if (!response.ok) {
         throw new Error('Erreur lors de l\'envoi du message')
       }
 
+      lastSubmitTime.current = now
       setSubmitted(true)
       setFormData({ name: '', email: '', subject: '', message: '' })
       
@@ -328,10 +412,24 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
+                      maxLength="100"
                       placeholder="Ton nom"
                       whileFocus={{ scale: 1.02 }}
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/20 transition-all"
+                      className={`w-full px-4 py-3 rounded-lg bg-white/5 border text-white placeholder-gray-500 focus:outline-none transition-all ${
+                        validationErrors.name 
+                          ? 'border-red-500 focus:border-red-500 focus:shadow-lg focus:shadow-red-500/20' 
+                          : 'border-gray-700 focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/20'
+                      }`}
                     />
+                    {validationErrors.name && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-400 text-xs mt-1"
+                      >
+                        {validationErrors.name}
+                      </motion.p>
+                    )}
                   </motion.div>
 
                   <motion.div
@@ -351,10 +449,24 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
+                      maxLength="200"
                       placeholder="ton@email.com"
                       whileFocus={{ scale: 1.02 }}
-                      className="w-full px-4 py-3 rounded-lg bg-white/5 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/20 transition-all"
+                      className={`w-full px-4 py-3 rounded-lg bg-white/5 border text-white placeholder-gray-500 focus:outline-none transition-all ${
+                        validationErrors.email 
+                          ? 'border-red-500 focus:border-red-500 focus:shadow-lg focus:shadow-red-500/20' 
+                          : 'border-gray-700 focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/20'
+                      }`}
                     />
+                    {validationErrors.email && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        className="text-red-400 text-xs mt-1"
+                      >
+                        {validationErrors.email}
+                      </motion.p>
+                    )}
                   </motion.div>
                 </div>
 
@@ -376,10 +488,24 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleChange}
                     required
+                    maxLength="200"
                     placeholder="Quel est le sujet ?"
                     whileFocus={{ scale: 1.02 }}
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg bg-white/5 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/20 transition-all"
+                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg bg-white/5 border text-white placeholder-gray-500 focus:outline-none transition-all ${
+                      validationErrors.subject 
+                        ? 'border-red-500 focus:border-red-500 focus:shadow-lg focus:shadow-red-500/20' 
+                        : 'border-gray-700 focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/20'
+                    }`}
                   />
+                  {validationErrors.subject && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-400 text-xs mt-1"
+                    >
+                      {validationErrors.subject}
+                    </motion.p>
+                  )}
                 </motion.div>
 
                 {/* Message */}
@@ -399,11 +525,25 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     required
+                    maxLength="5000"
                     placeholder="Raconte-moi..."
                     rows="5"
                     whileFocus={{ scale: 1.02 }}
-                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg bg-white/5 border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/20 transition-all resize-none"
+                    className={`w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg bg-white/5 border text-white placeholder-gray-500 focus:outline-none transition-all resize-none ${
+                      validationErrors.message 
+                        ? 'border-red-500 focus:border-red-500 focus:shadow-lg focus:shadow-red-500/20' 
+                        : 'border-gray-700 focus:border-purple-500 focus:shadow-lg focus:shadow-purple-500/20'
+                    }`}
                   />
+                  {validationErrors.message && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-400 text-xs mt-1"
+                    >
+                      {validationErrors.message}
+                    </motion.p>
+                  )}
                 </motion.div>
 
                 {/* Submit Button */}

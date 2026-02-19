@@ -17,8 +17,11 @@ export default function HackerMode() {
   const terminalRef = useRef(null)
   const loginRef = useRef(null)
 
+  // Simple obfuscation (not real security, just makes it less obvious)
+  const dec = (s) => atob(s)
+
   const secretInfo = {
-    passwords: ['c0ff33_4dd1ct', 'n1ght_0wl', 'p1zz4_l0v3r'],
+    passwords: [dec('YzBmZjMzXzRkZDFjdA=='), dec('bjFnaHRfMHds'), dec('cDF6ejRfbDB2M3I=')],
     files: [
       { name: 'favorite_music.txt', content: 'Playlist: Lofi Hip Hop 24/7 🎧' },
       { name: 'secret_talent.txt', content: 'Je peux résoudre un Rubik\'s Cube en 2min !' },
@@ -87,11 +90,12 @@ export default function HackerMode() {
   const handleLogin = (e) => {
     e.preventDefault()
     
+    // Obfuscated credentials (base64 encoded)
     const validLogins = [
-      { user: 'admin', pass: 'admin' },
-      { user: 'root', pass: 'toor' },
-      { user: 'aaron', pass: 'hack' },
-      { user: 'guest', pass: '1234' }
+      { user: dec('YWRtaW4='), pass: dec('YWRtaW4=') },           // admin/admin
+      { user: dec('cm9vdA=='), pass: dec('dG9vcg==') },           // root/toor
+      { user: dec('YWFyb24='), pass: dec('aGFjaw==') },           // aaron/hack
+      { user: dec('Z3Vlc3Q='), pass: dec('MTIzNA==') }            // guest/1234
     ]
 
     const isValid = validLogins.some(
