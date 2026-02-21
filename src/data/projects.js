@@ -279,7 +279,7 @@ export const projects = [
     tech: ['React', 'Laravel', 'MySQL', 'JWT', 'Tailwind CSS', 'Axios', 'Zustand'],
     category: ['Académique', 'Full Stack', 'Social Network'],
     type: 'academic',
-    year: '2025',
+    year: '2026',
     status: 'En développement',
     highlights: [
       'Système d\'authentification JWT sécurisé',
@@ -554,7 +554,7 @@ export const projects = [
     tech: ['PHP', 'MySQL', 'OWASP', 'Cybersecurity', 'Email API', 'CSRF Protection', 'Rate Limiting'],
     category: ['Personnel', 'Backend', 'Cybersécurité'],
     type: 'personal',
-    year: '2025',
+    year: '2026',
     status: 'Terminé',
     highlights: [
       'Backend PHP sécurisé et performant',
