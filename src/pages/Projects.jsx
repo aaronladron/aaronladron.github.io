@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import ProjectCard from '../components/ProjectCard'
+import ProjectModal from '../components/ProjectModal'
 import AnimatedBackground from '../components/AnimatedBackground'
 import { getAcademicProjects, getPersonalProjects } from '../data/projects'
 
 export default function Projects() {
   const [activeSection, setActiveSection] = useState('all')
+  const [selectedProject, setSelectedProject] = useState(null)
   
   const academicProjects = getAcademicProjects()
   const personalProjects = getPersonalProjects()
@@ -127,7 +129,12 @@ export default function Projects() {
                 className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
               >
                 {academicProjects.map((project, index) => (
-                  <ProjectCard key={project.id} project={project} index={index} />
+                  <ProjectCard 
+                    key={project.id} 
+                    project={project} 
+                    index={index}
+                    onViewDetails={setSelectedProject}
+                  />
                 ))}
               </motion.div>
             </motion.div>
@@ -165,7 +172,13 @@ export default function Projects() {
                 className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8"
               >
                 {personalProjects.map((project, index) => (
-                  <ProjectCard key={project.id} project={project} index={index} featured />
+                  <ProjectCard 
+                    key={project.id} 
+                    project={project} 
+                    index={index}
+                    featured
+                    onViewDetails={setSelectedProject}
+                  />
                 ))}
               </motion.div>
             </motion.div>
@@ -233,6 +246,13 @@ export default function Projects() {
           </motion.div>
         </div>
       </div>
+
+      {/* Project Details Modal */}
+      <ProjectModal 
+        project={selectedProject} 
+        isOpen={selectedProject !== null} 
+        onClose={() => setSelectedProject(null)} 
+      />
     </>
   )
 }

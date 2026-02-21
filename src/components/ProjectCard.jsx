@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 
-export default function ProjectCard({ project, index, featured = false }) {
+export default function ProjectCard({ project, index, featured = false, onViewDetails }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -120,6 +120,19 @@ export default function ProjectCard({ project, index, featured = false }) {
 
         {/* Buttons */}
         <div className="space-y-2.5">
+          {/* Details button */}
+          {onViewDetails && (
+            <motion.button
+              onClick={() => onViewDetails(project)}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="w-full px-4 py-2.5 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 flex items-center justify-center gap-2 transition-all"
+            >
+              <span>📖</span>
+              <span>Voir les détails</span>
+            </motion.button>
+          )}
+
           {/* Demo button */}
           {project.demo && (
             <motion.a
