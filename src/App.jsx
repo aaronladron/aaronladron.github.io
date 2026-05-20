@@ -1,13 +1,24 @@
+import { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
-import { ThemeProvider } from './contexts/ThemeContext'
 import Navbar from './components/Navbar'
+import AnimatedBackground from './components/AnimatedBackground'
 import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
 import Contact from './pages/Contact'
 import HackerMode from './pages/HackerMode'
 import PageTransition from './components/PageTransition'
+
+function ScrollToTop() {
+  const location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+  }, [location.pathname])
+
+  return null
+}
 
 function AnimatedRoutes() {
   const location = useLocation()
@@ -27,11 +38,11 @@ function AnimatedRoutes() {
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <Router>
-        <Navbar />
-        <AnimatedRoutes />
-      </Router>
-    </ThemeProvider>
+    <Router>
+      <ScrollToTop />
+      <AnimatedBackground />
+      <Navbar />
+      <AnimatedRoutes />
+    </Router>
   )
 }
