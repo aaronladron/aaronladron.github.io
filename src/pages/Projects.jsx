@@ -214,22 +214,6 @@ export default function Projects() {
               </div>
             </div>
 
-            {/* Filter bar (wide) */}
-            <div className="max-w-6xl mx-auto mt-6 mb-12">
-              <div className="rounded-2xl bg-[#071024]/50 border border-gray-800/60 p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-left flex-1 min-w-0">
-                  <div className="text-xs uppercase text-gray-400 tracking-wide mb-2">Lecture par intention</div>
-                  <h3 className="text-lg sm:text-2xl font-bold text-white truncate">Filtre ton angle de lecture selon le besoin du recruteur</h3>
-                </div>
-
-                <div className="flex items-center gap-3">
-                  <button className="px-4 py-2 rounded-full bg-blue-500 text-white font-semibold">DevOps</button>
-                  <button className="px-4 py-2 rounded-full bg-white/5 text-gray-300">Réseau</button>
-                  <button className="px-4 py-2 rounded-full bg-white/5 text-gray-300">Système</button>
-                  <button className="px-4 py-2 rounded-full bg-white/5 text-gray-300">Sécurité</button>
-                </div>
-              </div>
-            </div>
           </motion.div>
 
           {/* CTA Section */}

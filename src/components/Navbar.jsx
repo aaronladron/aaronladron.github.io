@@ -1,11 +1,9 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
 
 export default function Navbar() {
   const location = useLocation()
-  const navigate = useNavigate()
-  const [clicks, setClicks] = useState(0)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const links = [
@@ -16,16 +14,6 @@ export default function Navbar() {
   ]
 
   const isActive = (path) => location.pathname === path
-
-  const handleSecretClick = (e) => {
-    e.preventDefault()
-    const newClicks = clicks + 1
-    setClicks(newClicks)
-    console.log('🔓 Easter egg clicks:', newClicks)
-    if (newClicks >= 3) {
-      navigate('/hack')
-    }
-  }
 
   return (
     <motion.nav
@@ -45,11 +33,9 @@ export default function Navbar() {
               className="flex items-center gap-3 group"
             >
               <motion.div
-                onClick={handleSecretClick}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95, rotate: 15 }}
-                className="w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-1000 cursor-pointer bg-gradient-to-r from-blue-500 to-cyan-400"
-                title={clicks >= 1 ? `${clicks}/3 clicks...` : ""}
+                className="w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-1000 bg-gradient-to-r from-blue-500 to-cyan-400"
               >
                 <span className="text-black text-sm font-bold tracking-wider">AL</span>
               </motion.div>

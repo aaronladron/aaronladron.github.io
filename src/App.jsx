@@ -7,7 +7,6 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Projects from './pages/Projects'
 import Contact from './pages/Contact'
-import HackerMode from './pages/HackerMode'
 import PageTransition from './components/PageTransition'
 
 function ScrollToTop() {
@@ -29,7 +28,6 @@ function AnimatedRoutes() {
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
-        <Route path="/hack" element={<HackerMode />} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
       </Routes>
     </AnimatePresence>
@@ -38,7 +36,7 @@ function AnimatedRoutes() {
 
 export default function App() {
   return (
-    <Router>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
       <ScrollToTop />
       <AnimatedBackground />
       <Navbar />
