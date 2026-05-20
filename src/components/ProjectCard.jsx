@@ -20,11 +20,7 @@ export default function ProjectCard({ project, index, featured = false, onViewDe
         <motion.div
           animate={isHovered ? { scale: 1.05 } : { scale: 1 }}
           transition={{ duration: 0.6 }}
-          className={`absolute inset-0 bg-gradient-to-br ${
-            project.type === 'academic' 
-              ? 'from-blue-600/40 via-cyan-500/30 to-blue-800/40' 
-              : 'from-orange-600/40 via-red-500/30 to-pink-600/40'
-          }`}
+          className={`absolute inset-0 bg-gradient-to-br from-blue-600/30 via-cyan-500/20 to-blue-900/10`}
         />
 
         {/* Pattern subtil */}
@@ -171,14 +167,10 @@ export default function ProjectCard({ project, index, featured = false, onViewDe
         </div>
       </div>
 
-      {/* Subtle glow on hover */}
+        {/* Subtle glow on hover */}
       {isHovered && (
-        <div className="absolute -inset-0.5 -z-10 opacity-50 blur-xl transition-opacity duration-500">
-          <div className={`absolute inset-0 bg-gradient-to-r ${
-            project.type === 'academic' 
-              ? 'from-blue-600/30 to-cyan-600/30' 
-              : 'from-orange-600/30 to-red-600/30'
-          }`} />
+        <div className="absolute -inset-0.5 -z-10 opacity-60 blur-xl transition-opacity duration-500">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/30 via-cyan-400/25 to-blue-600/20" />
         </div>
       )}
     </motion.div>

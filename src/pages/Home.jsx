@@ -5,15 +5,14 @@ import profileImage from '../assets/image.webp'
 export default function Home() {
   const [terminalText, setTerminalText] = useState('')
   const [showCursor, setShowCursor] = useState(true)
-  const [isLoading, setIsLoading] = useState(true)
   
   const commands = [
     '$ whoami',
     '> Aaron Ladron',
     '$ cat role.txt',
-    '> Développeur Full Stack',
+    '> Développeur Full Stack Freelance',
     '$ cat bio.txt',
-    '> Étudiant à la Web@cadémie by Epitech, je développe des',
+    '> Étudiant à Epitech, je développe des',
     '> compétences en développement web, algorithmique et',
     '> programmation orientée projet. Passionné par la sécurité',
     '> informatique, je vise une spécialisation en cybersécurité,',
@@ -25,18 +24,9 @@ export default function Home() {
     '> Ready to build amazing projects'
   ]
 
-  useEffect(() => {
-    // Loader effect
-    const loaderTimer = setTimeout(() => {
-      setIsLoading(false)
-    }, 2500)
-
-    return () => clearTimeout(loaderTimer)
-  }, [])
+  // loader removed — start immediately
 
   useEffect(() => {
-    if (isLoading) return // Don't start typing until loader is done
-
     let currentCommand = 0
     let currentChar = 0
     let currentText = ''
@@ -66,39 +56,16 @@ export default function Home() {
       clearInterval(typeInterval)
       clearInterval(cursorInterval)
     }
-  }, [isLoading])
+  }, [])
 
-  // Loader Component
-  if (isLoading) {
-    return (
-      <motion.div
-        initial={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-[#0a0a0a] flex items-center justify-center z-50"
-      >
-        <div className="relative">
-          {/* Simple elegant circle */}
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-            className="w-20 h-20 rounded-full border-2 border-gray-800 border-t-white"
-          />
-          
-          {/* Initials */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-white text-xl font-light tracking-widest">AL</span>
-          </div>
-        </div>
-      </motion.div>
-    )
-  }
+  // loader removed — render content immediately
 
   return (
-    <section className="min-h-screen bg-[#0a0a0a] flex items-center justify-center pt-24 px-4 sm:px-6 relative overflow-hidden">
-      {/* Subtle background gradient */}
+    <section className="min-h-screen bg-transparent flex items-center justify-center pt-24 px-4 sm:px-6 relative overflow-hidden">
+      {/* Subtle background gradient (blue accents) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-gray-900/30 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-gray-900/20 to-transparent"></div>
+        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-bl from-blue-900/10 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-cyan-900/10 to-transparent"></div>
       </div>
 
       <div className="max-w-7xl w-full mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
@@ -129,7 +96,7 @@ export default function Home() {
               <div className="hidden sm:block w-12 h-[1px] bg-gradient-to-r from-transparent to-gray-600"></div>
               <span>Étudiant à Epitech</span>
               <span className="hidden sm:inline">•</span>
-              <span>Développeur Full Stack</span>
+              <span>Développeur Full Stack Freelance</span>
             </motion.div>
           </div>
 
@@ -161,7 +128,7 @@ export default function Home() {
             className="flex gap-2.5 sm:gap-3"
           >
             <a
-              href="https://github.com/votre-username"
+              href="https://github.com/aaronladron"
               target="_blank"
               rel="noopener noreferrer"
               className="group"
@@ -202,7 +169,7 @@ export default function Home() {
         </motion.div>
 
         {/* Right Side - Enhanced Terminal */}
-        <motion.div
+          <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -210,9 +177,9 @@ export default function Home() {
         >
           <div className="w-full max-w-2xl">
             {/* Terminal Window */}
-            <div className="bg-[#111111] rounded-lg overflow-hidden border border-gray-800/50 hover:border-gray-700 transition-all duration-500">
+            <div className="bg-[#0f1112]/40 backdrop-blur-sm rounded-lg overflow-hidden border border-gray-800/40 hover:border-blue-500/60 transition-all duration-500 terminal-target">
               {/* Terminal Header */}
-              <div className="bg-[#0d0d0d] px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between border-b border-gray-800/50">
+              <div className="bg-[#0d0d0d]/40 px-3 sm:px-4 py-2.5 sm:py-3 flex items-center justify-between border-b border-gray-800/40">
                 <div className="flex items-center gap-2 sm:gap-3">
                   <div className="flex gap-1.5 sm:gap-2">
                     <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-gray-700"></div>
@@ -225,7 +192,7 @@ export default function Home() {
               </div>
               
               {/* Terminal Content */}
-              <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm min-h-[350px] sm:min-h-[450px] bg-[#111111]">
+              <div className="p-4 sm:p-6 font-mono text-xs sm:text-sm min-h-[350px] sm:min-h-[450px] bg-[#0f1112]/30">
                 <div className="flex items-center gap-2 mb-2 sm:mb-3">
                   <span className="text-gray-500">$</span>
                   <span className="text-gray-400">~</span>
@@ -263,7 +230,7 @@ export default function Home() {
               </div>
 
               {/* Terminal Footer */}
-              <div className="bg-[#0d0d0d] px-3 sm:px-4 py-1.5 sm:py-2 border-t border-gray-800/50 flex items-center justify-between text-xs">
+              <div className="bg-[#0d0d0d]/40 px-3 sm:px-4 py-1.5 sm:py-2 border-t border-gray-800/40 flex items-center justify-between text-xs">
                 <span className="text-gray-600 font-mono">aaron@portfolio</span>
                 <span className="text-gray-700">UTF-8</span>
               </div>

@@ -355,6 +355,262 @@ export const projects = [
     ],
     github: 'https://github.com/aaronladron/myconnect'
   },
+  {
+    id: 7,
+    title: 'My Connect V2',
+    description: 'Évolution de My Connect avec une refonte du backend en Spring Boot Java. Le projet met l\'accent sur une architecture plus robuste, une API mieux structurée et une base technique plus proche des attentes d\'un environnement professionnel.',
+    longDescription: 'My Connect V2 reprend l\'idée du projet social initial mais avec une nouvelle implémentation backend en Spring Boot Java. Cette version m\'a permis de travailler sur la migration d\'une logique applicative vers un socle Java plus structuré, avec une séparation claire des responsabilités, une API REST plus propre et une meilleure organisation du code côté serveur. Le but était de consolider mes acquis sur les architectures modernes tout en améliorant la maintenabilité et la scalabilité du projet.',
+    image: '/projects/myconnect-v2.jpg',
+    tech: ['Spring Boot', 'Java', 'REST API', 'MySQL', 'JWT', 'Maven'],
+    category: ['Académique', 'Full Stack', 'Backend Java'],
+    type: 'academic',
+    year: '2026',
+    status: 'Terminé',
+    highlights: [
+      'Refonte du backend en Spring Boot Java',
+      'API REST structurée et maintenable',
+      'Gestion sécurisée de l\'authentification',
+      'Architecture backend plus robuste'
+    ],
+    technicalDetails: [
+      {
+        title: 'Backend Spring Boot',
+        description: 'Création d\'une API Java basée sur Spring Boot avec découpage Controller / Service / Repository. Utilisation de Spring Web pour les endpoints REST, Spring Data JPA pour l\'accès aux données et validation des entrées côté serveur. Organisation du code pour faciliter l\'évolution du projet et la maintenance.'
+      },
+      {
+        title: 'Sécurité & Authentification',
+        description: 'Mise en place d\'une authentification sécurisée avec JWT et gestion des rôles. Protection des routes sensibles, validation des données entrantes et séparation des responsabilités entre les couches applicatives. Travail sur la fiabilité des échanges entre frontend et backend.'
+      },
+      {
+        title: 'Persistance des données',
+        description: 'Connexion à une base MySQL avec modèles relationnels adaptés au contexte social du projet. Structuration des entités pour les utilisateurs, les publications et les interactions. Utilisation de migrations et d\'une organisation pensée pour la lisibilité du schéma.'
+      }
+    ],
+    architecture: [
+      {
+        layer: 'Frontend',
+        description: 'Interface de consultation et d\'interaction avec le backend Spring Boot via des requêtes API REST.'
+      },
+      {
+        layer: 'Backend Spring Boot',
+        description: 'Controllers REST, services métiers, repositories et configuration de sécurité centralisée.'
+      },
+      {
+        layer: 'Base de Données',
+        description: 'Schéma MySQL conçu pour les utilisateurs, contenus et interactions sociales.'
+      }
+    ],
+    features: [
+      {
+        icon: '🔁',
+        title: 'Migration Backend',
+        description: 'Réécriture du backend vers Spring Boot Java pour gagner en structure et en robustesse.'
+      },
+      {
+        icon: '🔐',
+        title: 'Sécurité API',
+        description: 'Gestion des accès, protection des routes et authentification JWT.'
+      },
+      {
+        icon: '🧱',
+        title: 'Architecture Propre',
+        description: 'Séparation claire des couches pour un code plus maintenable.'
+      }
+    ],
+    github: 'https://github.com/aaronladron/myconnect-v2'
+  },
+  {
+    id: 8,
+    title: 'Popeye',
+    description: 'Projet de conteneurisation d\'une application avec Docker afin de préparer un environnement reproductible, isolé et facile à déployer.',
+    longDescription: 'Popeye était un projet centré sur la conteneurisation d\'une application existante. L\'objectif était de créer une image Docker propre, de simplifier le lancement du projet et de garantir un environnement cohérent entre développement, test et déploiement. Ce travail m\'a permis de mieux comprendre la logique des conteneurs, des volumes, des réseaux et des bonnes pratiques de build.',
+    image: '/projects/popeye.jpg',
+    tech: ['Docker', 'Docker Compose', 'Linux', 'CI/CD', 'Shell'],
+    category: ['Académique', 'DevOps', 'Conteneurisation'],
+    type: 'academic',
+    year: '2026',
+    status: 'Terminé',
+    highlights: [
+      'Conteneurisation complète du projet',
+      'Environnement reproductible',
+      'Simplification du déploiement',
+      'Compréhension des bonnes pratiques Docker'
+    ],
+    technicalDetails: [
+      {
+        title: 'Image Docker',
+        description: 'Création d\'une image adaptée au projet avec un Dockerfile structuré, des couches optimisées et un démarrage fiable. Travail sur la réduction des dépendances inutiles et sur la lisibilité du build.'
+      },
+      {
+        title: 'Orchestration',
+        description: 'Utilisation de Docker Compose pour lancer facilement les services nécessaires et reproduire l\'environnement local. Gestion des volumes, des ports et des variables d\'environnement.'
+      },
+      {
+        title: 'Déploiement',
+        description: 'Objectif de rendre le projet portable et simple à exécuter, que ce soit en local, en test ou dans une chaîne de livraison continue.'
+      }
+    ],
+    architecture: [
+      {
+        layer: 'Application',
+        description: 'Projet encapsulé dans un conteneur pour isoler l\'exécution et standardiser l\'environnement.'
+      },
+      {
+        layer: 'Docker',
+        description: 'Build d\'image, exposition des ports et configuration des dépendances au moment du conteneur.'
+      },
+      {
+        layer: 'Compose',
+        description: 'Lancement simplifié avec une configuration déclarative des services.'
+      }
+    ],
+    features: [
+      {
+        icon: '📦',
+        title: 'Projet Conteneurisé',
+        description: 'Exécution isolée dans Docker pour éviter les différences d\'environnement.'
+      },
+      {
+        icon: '⚙️',
+        title: 'Déploiement Simplifié',
+        description: 'Lancement rapide du projet avec une configuration unique.'
+      },
+      {
+        icon: '🧪',
+        title: 'Environnement Stable',
+        description: 'Reproductibilité entre machine locale, test et livraison.'
+      }
+    ],
+    github: 'https://github.com/aaronladron/popeye'
+  },
+  {
+    id: 9,
+    title: 'DevOps Games',
+    description: 'Projet DevOps appliqué à deux jeux JavaScript avec mise en place de workflows GitHub Actions, automatisation des tests et chaîne d\'intégration continue.',
+    longDescription: 'Ce projet DevOps consistait à industrialiser deux jeux développés en JavaScript en mettant en place une vraie chaîne d\'automatisation. J\'ai travaillé sur les workflows GitHub Actions, le lancement des tests, la validation du code et l\'organisation du pipeline d\'intégration continue. L\'objectif était de rendre le cycle de livraison plus fiable, plus rapide et plus propre, tout en gardant une bonne visibilité sur les étapes de contrôle.',
+    image: '/projects/devops-games.jpg',
+    tech: ['JavaScript', 'GitHub Actions', 'CI/CD', 'Docker', 'Testing', 'Linux'],
+    category: ['Académique', 'DevOps', 'CI/CD'],
+    type: 'academic',
+    year: '2026',
+    status: 'Terminé',
+    highlights: [
+      'Automatisation avec GitHub Actions',
+      'Workflows de validation et de tests',
+      'Pipeline DevOps sur deux jeux JS',
+      'Meilleure qualité de livraison'
+    ],
+    technicalDetails: [
+      {
+        title: 'GitHub Actions',
+        description: 'Création de workflows pour automatiser les vérifications à chaque push ou pull request. Déclenchement des tests, contrôle de la qualité et signalement rapide des erreurs.'
+      },
+      {
+        title: 'CI/CD',
+        description: 'Mise en place d\'une logique d\'intégration continue pour fiabiliser les livraisons et réduire les régressions. Standardisation du processus de vérification avant merge.'
+      },
+      {
+        title: 'Deux jeux JavaScript',
+        description: 'Application des mêmes principes DevOps à deux projets distincts pour démontrer la reproductibilité du pipeline et la cohérence des vérifications.'
+      }
+    ],
+    architecture: [
+      {
+        layer: 'Code JavaScript',
+        description: 'Deux jeux séparés mais soumis aux mêmes règles de qualité et d\'automatisation.'
+      },
+      {
+        layer: 'Workflows GitHub Actions',
+        description: 'Étapes de build, test et validation exécutées automatiquement.'
+      },
+      {
+        layer: 'Pipeline DevOps',
+        description: 'Flux de livraison continu pour fiabiliser les mises à jour.'
+      }
+    ],
+    features: [
+      {
+        icon: '🚀',
+        title: 'Workflows Automatisés',
+        description: 'Exécution automatique des vérifications à chaque changement de code.'
+      },
+      {
+        icon: '✅',
+        title: 'Tests et Contrôles',
+        description: 'Vérification de la qualité avant intégration.'
+      },
+      {
+        icon: '🔄',
+        title: 'Processus Répétable',
+        description: 'Même logique appliquée sur deux jeux JavaScript différents.'
+      }
+    ],
+    github: 'https://github.com/aaronladron/devops-games'
+  },
+  {
+    id: 10,
+    title: 'WordPress E-learning',
+    description: 'Plateforme e-learning complète construite avec WordPress pour proposer des cours, gérer les contenus pédagogiques et structurer l\'expérience apprenant.',
+    longDescription: 'Ce projet WordPress consistait à concevoir une plateforme de formation en ligne complète, pensée pour l\'apprentissage et la gestion de contenus pédagogiques. J\'ai travaillé sur la structure des pages, l\'organisation des cours, la personnalisation du thème et l\'intégration d\'éléments utiles à une vraie expérience e-learning. Le projet mettait l\'accent sur la simplicité d\'administration et la clarté de navigation pour les apprenants.',
+    image: '/projects/wordpress-elearning.jpg',
+    tech: ['WordPress', 'PHP', 'HTML', 'CSS', 'Plugins', 'Responsive Design'],
+    category: ['Académique', 'CMS', 'E-learning'],
+    type: 'academic',
+    year: '2026',
+    status: 'Terminé',
+    highlights: [
+      'Plateforme e-learning complète',
+      'Organisation des cours et contenus',
+      'Personnalisation WordPress',
+      'Expérience apprenant structurée'
+    ],
+    technicalDetails: [
+      {
+        title: 'WordPress & Thème',
+        description: 'Personnalisation du thème pour adapter l\'identité visuelle du projet et structurer les pages principales. Travail sur les templates et la mise en page.'
+      },
+      {
+        title: 'Structure E-learning',
+        description: 'Organisation des cours, modules et ressources pédagogiques pour créer un parcours de formation clair et lisible.'
+      },
+      {
+        title: 'Contenus & Administration',
+        description: 'Mise en place d\'une interface administrable facilement pour ajouter et gérer les contenus de formation sans complexité technique.'
+      }
+    ],
+    architecture: [
+      {
+        layer: 'WordPress Core',
+        description: 'Base CMS utilisée pour gérer les contenus et la structure globale du site.'
+      },
+      {
+        layer: 'Thème Personnalisé',
+        description: 'Adaptation visuelle et structurelle pour répondre au besoin e-learning.'
+      },
+      {
+        layer: 'Plugins & Contenus',
+        description: 'Extensions et modules de contenu pour enrichir la plateforme.'
+      }
+    ],
+    features: [
+      {
+        icon: '🎓',
+        title: 'Parcours de Formation',
+        description: 'Organisation des cours et modules pour guider l\'apprenant.'
+      },
+      {
+        icon: '🧩',
+        title: 'Gestion WordPress',
+        description: 'Plateforme administrable avec contenu facilement modifiable.'
+      },
+      {
+        icon: '📱',
+        title: 'Responsive Design',
+        description: 'Consultation fluide sur mobile, tablette et desktop.'
+      }
+    ],
+    github: 'https://github.com/aaronladron/wordpress-elearning'
+  },
 
   // Projets Personnels
   {
@@ -449,6 +705,79 @@ export const projects = [
       }
     ],
     github: 'https://github.com/aaronladron/secuguard'
+  },
+  {
+    id: 11,
+    title: 'ScanForge',
+    description: 'SaaS de pentest API en cours de développement, conçu pour aider les entreprises à détecter les failles de leurs endpoints avant qu\'elles ne génèrent des fuites de données et des pertes financières.',
+    longDescription: 'ScanForge est un projet personnel orienté cybersécurité et pentest applicatif. L\'objectif est de proposer un SaaS capable d\'analyser des API, de repérer des vulnérabilités courantes, de produire des rapports exploitables et de guider les équipes techniques vers des correctifs concrets. Le projet met l\'accent sur l\'automatisation des contrôles de sécurité, la clarté des résultats et la réduction du risque lié aux fuites de données exposées via les API. Il est actuellement en développement actif, avec une réflexion forte sur l\'expérience utilisateur, la fiabilité des scans et la valeur métier pour les entreprises.',
+    image: '/projects/scanforge.jpg',
+    tech: ['React', 'Node.js', 'API Security', 'OpenAPI', 'Docker', 'PostgreSQL', 'CI/CD'],
+    category: ['Personnel', 'Cybersécurité', 'SaaS'],
+    type: 'personal',
+    year: '2026',
+    status: 'En développement',
+    highlights: [
+      'Scan de sécurité des API',
+      'Détection de vulnérabilités courantes',
+      'Rapports exploitables pour les équipes techniques',
+      'Objectif de réduction des fuites de données',
+      'SaaS orienté pentest automatisé'
+    ],
+    technicalDetails: [
+      {
+        title: 'Moteur de scan API',
+        description: 'Analyse des endpoints, des paramètres, des réponses et des comportements suspects pour identifier des faiblesses de sécurité. Le moteur vise à couvrir plusieurs familles de risques, comme l\'authentification, l\'autorisation, l\'exposition de données sensibles et les erreurs de configuration.'
+      },
+      {
+        title: 'Plateforme SaaS',
+        description: 'Architecture pensée pour un produit en ligne avec gestion des comptes, stockage des historiques de scans, tableaux de bord et export de rapports. L\'objectif est de rendre l\'outil simple à utiliser pour les équipes techniques comme pour les décideurs.'
+      },
+      {
+        title: 'Conformité et remédiation',
+        description: 'Production de résultats clairs, priorisation des risques et pistes de remédiation pour aider les entreprises à corriger rapidement les points critiques avant qu\'ils ne causent des pertes financières.'
+      }
+    ],
+    architecture: [
+      {
+        layer: 'Frontend SaaS',
+        description: 'Interface de pilotage des scans, consultation des rapports et gestion des projets de sécurité.'
+      },
+      {
+        layer: 'Backend API',
+        description: 'Services métier pour lancer les scans, enregistrer les résultats, gérer l\'authentification et orchestrer les tâches.'
+      },
+      {
+        layer: 'Moteur d\'analyse',
+        description: 'Composant responsable de l\'inspection des API, du scoring des risques et de la génération des recommandations.'
+      },
+      {
+        layer: 'Base de données',
+        description: 'Stockage des utilisateurs, scans, résultats et historiques pour suivre l\'évolution de la posture de sécurité.'
+      }
+    ],
+    features: [
+      {
+        icon: '🔎',
+        title: 'Scan d\'API',
+        description: 'Contrôle automatisé des endpoints pour repérer les points faibles.'
+      },
+      {
+        icon: '🛡️',
+        title: 'Réduction du Risque',
+        description: 'Aide à prévenir les fuites de données et les impacts financiers associés.'
+      },
+      {
+        icon: '📄',
+        title: 'Rapports de Sécurité',
+        description: 'Synthèse claire des vulnérabilités et priorisation des corrections.'
+      },
+      {
+        icon: '☁️',
+        title: 'Modèle SaaS',
+        description: 'Plateforme en ligne pensée pour le suivi, l\'historique et l\'évolutivité.'
+      }
+    ]
   },
   {
     id: 5,

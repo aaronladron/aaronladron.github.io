@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState } from 'react'
 import TechStack from '../components/TechStack'
+import Icon from '../components/Icon'
 import AnimatedBackground from '../components/AnimatedBackground'
 
 export default function About() {
@@ -17,7 +18,7 @@ export default function About() {
     {
       phase: "Le lycée",
       year: "2020-2024",
-      icon: "🎓",
+      icon: "graduation",
       title: "L'éveil d'une passion",
       description: "Spécialités NSI et mathématiques. Une ambition claire : la cybersécurité. Un domaine qui m'attire pour son exigence technique et son rôle essentiel.",
       color: "from-blue-500 to-cyan-500",
@@ -26,7 +27,7 @@ export default function About() {
     {
       phase: "Terminale",
       year: "2024",
-      icon: "⚡",
+      icon: "lightning",
       title: "L'épreuve",
       description: "Des difficultés personnelles freinent mon parcours scolaire. Le baccalauréat m'échappe. Mais abandonner n'était pas une option.",
       color: "from-red-500 to-orange-500",
@@ -35,7 +36,7 @@ export default function About() {
     {
       phase: "Reconversion",
       year: "2024-2025",
-      icon: "🔥",
+      icon: "forge",
       title: "La forge",
       description: "CQPM Soudeur. Une expérience formatrice qui m'apprend la rigueur, la précision et la persévérance. Mais une évidence s'impose : ce n'est pas ma voie.",
       color: "from-amber-500 to-yellow-500",
@@ -44,7 +45,7 @@ export default function About() {
     {
       phase: "Le retour",
       year: "2026",
-      icon: "💻",
+      icon: "laptop",
       title: "Renaissance",
       description: "Epitech me fait confiance. Je trouve ma place. Pleinement investi, déterminé à exploiter chaque opportunité. Ma passion devient enfin mon parcours.",
       color: "from-purple-500 to-pink-500",
@@ -53,7 +54,7 @@ export default function About() {
     {
       phase: "L'objectif",
       year: "2027+",
-      icon: "🎯",
+      icon: "target",
       title: "Vers le master",
       description: "Master en cybersécurité. Faire de ma passion un métier. Évoluer dans un domaine qui me motive, me challenge et donne du sens à mon engagement.",
       color: "from-green-500 to-emerald-500",
@@ -62,62 +63,54 @@ export default function About() {
   ]
 
   const interests = [
-    { icon: "🎨", title: "Art", desc: "Création et expression visuelle", color: "from-pink-500 to-rose-500" },
-    { icon: "🥊", title: "Boxe", desc: "8 ans de pratique • Discipline & rigueur", color: "from-red-500 to-orange-500" },
-    { icon: "🔐", title: "Cybersécurité", desc: "Protection & analyse des systèmes", color: "from-blue-500 to-cyan-500" },
-    { icon: "⚙️", title: "Soudure", desc: "Travail manuel & fabrication", color: "from-amber-500 to-yellow-500" },
-    { icon: "💻", title: "Tech", desc: "Nouvelles technologies & innovation", color: "from-purple-500 to-indigo-500" }
+    { icon: "art", title: "Art", desc: "Création et expression visuelle", color: "from-pink-500 to-rose-500" },
+    { icon: "boxe", title: "Boxe", desc: "8 ans de pratique • Discipline & rigueur", color: "from-red-500 to-orange-500" },
+    { icon: "cyber", title: "Cybersécurité", desc: "Protection & analyse des systèmes", color: "from-blue-500 to-cyan-500" },
+    { icon: "soudure", title: "Soudure", desc: "Travail manuel & fabrication", color: "from-amber-500 to-yellow-500" },
+    { icon: "tech", title: "Tech", desc: "Nouvelles technologies & innovation", color: "from-purple-500 to-indigo-500" },
+    { icon: "musique", title: "Musique", desc: "Composition et écoutes éclectiques", color: "from-green-400 to-emerald-400" }
   ]
 
   const qualities = [
     {
-      icon: "🔍",
-      title: "Curieux",
-      desc: "Toujours motivé pour découvrir de nouvelles technologies et méthodes",
-      percentage: 95
+      icon: "collaboration",
+      title: "Collaboration",
+      desc: "Partage des connaissances et travail efficace en équipe"
     },
     {
-      icon: "⚡",
-      title: "Rigoureux",
-      desc: "Attention aux détails et aux bonnes pratiques dans mes projets",
-      percentage: 92
+      icon: "communication",
+      title: "Communication",
+      desc: "Explique clairement les idées aux collègues et aux non-techniques"
     },
     {
-      icon: "🚀",
-      title: "Autonome",
-      desc: "Capable de gérer mes tâches et d'apprendre rapidement",
-      percentage: 90
+      icon: "problem",
+      title: "Résolution de problèmes",
+      desc: "Analyse les problèmes et propose des solutions pragmatiques"
     },
     {
-      icon: "🤝",
-      title: "Esprit d'équipe",
-      desc: "J'apprécie le travail collaboratif et le partage de connaissances",
-      percentage: 88
+      icon: "adaptability",
+      title: "Adaptabilité",
+      desc: "Apprend rapidement et s'ajuste aux nouvelles situations"
     },
     {
-      icon: "📋",
-      title: "Organisé",
-      desc: "Je structure mon travail pour être efficace et respecter les deadlines",
-      percentage: 91
+      icon: "time",
+      title: "Gestion du temps",
+      desc: "Priorise les tâches et respecte les délais"
     },
     {
-      icon: "❤️",
-      title: "Passionné",
-      desc: "Motivé par le développement web et la cybersécurité",
-      percentage: 98
+      icon: "leadership",
+      title: "Leadership",
+      desc: "Prend des initiatives et guide les projets vers l'objectif"
     }
   ]
 
-  const languages = [
-    { lang: "Anglais", level: "B1", desc: "Compréhension fonctionnelle, lecture de docs techniques", percentage: 60 },
-    { lang: "Espagnol", level: "B2", desc: "Bonne maîtrise écrite et orale, contenus complexes", percentage: 75 }
-  ]
+  // Langues section removed — kept out as requested
 
   return (
     <>
       <AnimatedBackground />
 
-      <div ref={containerRef} className="relative">
+      <div ref={containerRef} className="relative overflow-x-hidden">
         {/* Hero Section - Ultra impactant */}
         <motion.div
           style={{ opacity, scale }}
@@ -172,16 +165,25 @@ export default function About() {
                 className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12"
               >
                 <div className="text-center">
+                  <div className="flex items-center justify-center mb-2">
+                    <Icon name="stat_age" className="text-3xl sm:text-4xl md:text-5xl text-white" />
+                  </div>
                   <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">20</div>
                   <div className="text-xs sm:text-sm text-gray-500 mt-1">ans</div>
                 </div>
                 <div className="h-12 sm:h-16 w-px bg-gray-800"></div>
                 <div className="text-center">
+                  <div className="flex items-center justify-center mb-2">
+                    <Icon name="stat_passion" className="text-3xl sm:text-4xl md:text-5xl text-white" />
+                  </div>
                   <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">∞</div>
                   <div className="text-xs sm:text-sm text-gray-500 mt-1">passion</div>
                 </div>
                 <div className="h-12 sm:h-16 w-px bg-gray-800"></div>
                 <div className="text-center">
+                  <div className="flex items-center justify-center mb-2">
+                    <Icon name="stat_goal" className="text-3xl sm:text-4xl md:text-5xl text-white" />
+                  </div>
                   <div className="text-3xl sm:text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-400">1</div>
                   <div className="text-xs sm:text-sm text-gray-500 mt-1">objectif</div>
                 </div>
@@ -263,7 +265,7 @@ export default function About() {
                               transition={{ duration: 0.6 }}
                               className="text-3xl sm:text-4xl"
                             >
-                              {item.icon}
+                              <Icon name={item.icon} className="text-4xl" />
                             </motion.div>
                           </div>
 
@@ -310,6 +312,76 @@ export default function About() {
           </div>
         </div>
 
+        {/* Tech Stack */}
+        <div className="relative py-20 sm:py-32 px-4 sm:px-6">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12 sm:mb-20"
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+                  Stack Technique
+                </span>
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-400">Les technologies que je maîtrise</p>
+            </motion.div>
+            <TechStack />
+          </div>
+        </div>
+
+        {/* Soft Skills (Mes Qualités) */}
+        <div className="relative py-20 sm:py-32 px-4 sm:px-6">
+          <div className="max-w-6xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-12 sm:mb-20"
+            >
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-400">
+                  Soft Skills
+                </span>
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl text-gray-400">Compétences humaines et comportementales</p>
+            </motion.div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+              {qualities.map((quality, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.08 }}
+                  whileHover={{ y: -6 }}
+                  className="relative group"
+                >
+                  <div className="p-6 rounded-xl bg-gradient-to-br from-white/5 to-white/0 border border-gray-800 group-hover:border-gray-700 transition-all duration-500 h-full">
+                    <div className="flex items-center gap-4 mb-3">
+                      <motion.div
+                        whileHover={{ rotate: 12, scale: 1.05 }}
+                        transition={{ duration: 0.4 }}
+                        className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-white/5 to-white/0 rounded-lg"
+                      >
+                        <Icon name={quality.icon} className="text-2xl" />
+                      </motion.div>
+
+                      <div className="flex-1">
+                        <h3 className="text-lg sm:text-xl font-bold mb-1 text-white">{quality.title}</h3>
+                        <p className="text-sm text-gray-400 leading-relaxed">{quality.desc}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* Centres d'intérêt - Section immersive */}
         <div className="relative py-20 sm:py-32 px-4 sm:px-6 overflow-hidden">
           {/* Background effect */}
@@ -350,7 +422,7 @@ export default function About() {
                       transition={{ duration: 0.6 }}
                       className="text-5xl sm:text-6xl mb-3 sm:mb-4"
                     >
-                      {interest.icon}
+                      <Icon name={interest.icon} className="text-5xl" />
                     </motion.div>
                     <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3 text-white">{interest.title}</h3>
                     <p className="text-gray-400 text-xs sm:text-sm">{interest.desc}</p>
@@ -360,153 +432,7 @@ export default function About() {
             </div>
           </div>
         </div>
-
-        {/* Qualités - Grid dynamique */}
-        <div className="relative py-20 sm:py-32 px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12 sm:mb-20"
-            >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-blue-400">
-                  Mes Qualités
-                </span>
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-400">Ce qui me définit en tant que développeur</p>
-            </motion.div>
-
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-              {qualities.map((quality, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ y: -5 }}
-                  className="relative group"
-                >
-                  <div className="p-4 sm:p-6 rounded-xl bg-gradient-to-br from-white/5 to-white/0 border border-gray-800 group-hover:border-gray-700 transition-all duration-500">
-                    <div className="flex items-start gap-3 sm:gap-4 mb-3 sm:mb-4">
-                      <motion.div
-                        whileHover={{ rotate: 360 }}
-                        transition={{ duration: 0.5 }}
-                        className="text-3xl sm:text-4xl"
-                      >
-                        {quality.icon}
-                      </motion.div>
-                      <div className="flex-1">
-                        <h3 className="text-lg sm:text-xl font-bold mb-1.5 sm:mb-2 text-white">{quality.title}</h3>
-                        <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">{quality.desc}</p>
-                      </div>
-                    </div>
-
-                    {/* Progress bar */}
-                    <div className="mt-4">
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-xs text-gray-500">Niveau</span>
-                        <span className="text-xs font-bold text-gray-400">{quality.percentage}%</span>
-                      </div>
-                      <div className="h-2 bg-gray-800 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${quality.percentage}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1, delay: index * 0.1 }}
-                          className="h-full bg-gradient-to-r from-green-400 to-blue-400 rounded-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Langues - Section élégante */}
-        <div className="relative py-20 sm:py-32 px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12 sm:mb-20"
-            >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400">
-                  Langues
-                </span>
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-400">Communication internationale</p>
-            </motion.div>
-
-            <div className="space-y-6 sm:space-y-8">
-              {languages.map((language, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 }}
-                  whileHover={{ scale: 1.02 }}
-                  className="relative group"
-                >
-                  <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-xl blur-xl opacity-25 group-hover:opacity-40 transition duration-500"></div>
-
-                  <div className="relative p-5 sm:p-6 md:p-8 rounded-xl bg-[#0a0a0a] border border-gray-800 group-hover:border-gray-700 transition-all duration-500">
-                    <div className="flex items-center justify-between mb-3 sm:mb-4 gap-4">
-                      <div className="flex-1">
-                        <h3 className="text-xl sm:text-2xl font-bold text-white mb-1">{language.lang}</h3>
-                        <p className="text-xs sm:text-sm text-gray-400">{language.desc}</p>
-                      </div>
-                      <div className="text-2xl sm:text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-blue-400 flex-shrink-0">
-                        {language.level}
-                      </div>
-                    </div>
-
-                    <div className="mt-4">
-                      <div className="h-3 bg-gray-800 rounded-full overflow-hidden">
-                        <motion.div
-                          initial={{ width: 0 }}
-                          whileInView={{ width: `${language.percentage}%` }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.5, delay: index * 0.2 }}
-                          className="h-full bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Tech Stack */}
-        <div className="relative py-20 sm:py-32 px-4 sm:px-6">
-          <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12 sm:mb-20"
-            >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
-                  Stack Technique
-                </span>
-              </h2>
-              <p className="text-base sm:text-lg md:text-xl text-gray-400">Les technologies que je maîtrise</p>
-            </motion.div>
-            <TechStack />
-          </div>
-        </div>
-
-        {/* CTA Final */}
+                  
         <div className="relative py-20 sm:py-32 px-4 sm:px-6">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div

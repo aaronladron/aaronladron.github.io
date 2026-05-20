@@ -33,15 +33,7 @@ export default function Projects() {
             transition={{ duration: 0.8 }}
             className="mb-12 sm:mb-16 text-center"
           >
-            <motion.div
-              initial={{ scale: 0 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="inline-block mb-3 sm:mb-4"
-            >
-              <span className="text-5xl sm:text-6xl">💼</span>
-            </motion.div>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 text-white">
               Mes Projets
             </h1>
             <p className="text-gray-400 text-base sm:text-lg max-w-3xl mx-auto">
@@ -54,7 +46,7 @@ export default function Projects() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-12 sm:mb-16"
+            className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10 sm:mb-12"
           >
             <motion.button
               onClick={() => setActiveSection('all')}
@@ -62,8 +54,8 @@ export default function Projects() {
               whileTap={{ scale: 0.95 }}
               className={`px-5 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition-all ${
                 activeSection === 'all'
-                  ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/50'
-                  : 'bg-white/5 border border-gray-800 text-gray-400 hover:text-white hover:border-gray-600'
+                  ? 'bg-purple-600 text-white'
+                      : 'bg-white/5 border border-gray-800 text-gray-400 hover:text-white hover:border-gray-600'
               }`}
             >
               <span className="hidden sm:inline">Tous les projets</span>
@@ -75,12 +67,12 @@ export default function Projects() {
               whileTap={{ scale: 0.95 }}
               className={`px-5 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition-all ${
                 activeSection === 'academic'
-                  ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/50'
-                  : 'bg-white/5 border border-gray-800 text-gray-400 hover:text-white hover:border-gray-600'
+                  ? 'bg-blue-600 text-white'
+                      : 'bg-white/5 border border-gray-800 text-gray-400 hover:text-white hover:border-gray-600'
               }`}
             >
-              <span className="hidden sm:inline">🎓 Projets Académiques ({academicProjects.length})</span>
-              <span className="sm:hidden">🎓 Académiques ({academicProjects.length})</span>
+                  <span className="hidden sm:inline">Projets Académiques ({academicProjects.length})</span>
+                  <span className="sm:hidden">Académiques ({academicProjects.length})</span>
             </motion.button>
             <motion.button
               onClick={() => setActiveSection('personal')}
@@ -88,12 +80,12 @@ export default function Projects() {
               whileTap={{ scale: 0.95 }}
               className={`px-5 sm:px-8 py-2.5 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition-all ${
                 activeSection === 'personal'
-                  ? 'bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-lg shadow-orange-500/50'
-                  : 'bg-white/5 border border-gray-800 text-gray-400 hover:text-white hover:border-gray-600'
+                  ? 'bg-orange-600 text-white'
+                      : 'bg-white/5 border border-gray-800 text-gray-400 hover:text-white hover:border-gray-600'
               }`}
             >
-              <span className="hidden sm:inline">🚀 Projets Personnels ({personalProjects.length})</span>
-              <span className="sm:hidden">🚀 Personnels ({personalProjects.length})</span>
+                  <span className="hidden sm:inline">Projets Personnels ({personalProjects.length})</span>
+                  <span className="sm:hidden">Personnels ({personalProjects.length})</span>
             </motion.button>
           </motion.div>
 
@@ -109,16 +101,10 @@ export default function Projects() {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="mb-8 sm:mb-12"
+                className="mb-8 sm:mb-12 text-center"
               >
-                <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-                  <div className="text-3xl sm:text-4xl">🎓</div>
-                  <div>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Projets Académiques</h2>
-                    <p className="text-gray-400 text-sm sm:text-base mt-1">Formation Web@cadémie by Epitech • Maîtrise des fondamentaux</p>
-                  </div>
-                </div>
-                <div className="h-1 w-full bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full opacity-20"></div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Projets Académiques</h2>
+                <p className="text-gray-400 text-sm sm:text-base mt-2">Formation Web@cadémie by Epitech • Maîtrise des fondamentaux</p>
               </motion.div>
 
               <motion.div
@@ -126,7 +112,7 @@ export default function Projects() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
-                className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
+                className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch mx-auto max-w-6xl"
               >
                 {academicProjects.map((project, index) => (
                   <ProjectCard 
@@ -152,16 +138,10 @@ export default function Projects() {
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="mb-8 sm:mb-12"
+                className="mb-8 sm:mb-12 text-center"
               >
-                <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
-                  <div className="text-3xl sm:text-4xl">🚀</div>
-                  <div>
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Projets Personnels</h2>
-                    <p className="text-gray-400 text-sm sm:text-base mt-1">Innovation & passion • Cybersécurité, blockchain et plus</p>
-                  </div>
-                </div>
-                <div className="h-1 w-full bg-gradient-to-r from-orange-500 to-red-500 rounded-full opacity-20"></div>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">Projets Personnels</h2>
+                <p className="text-gray-400 text-sm sm:text-base mt-2">Innovation & passion • Cybersécurité, blockchain et plus</p>
               </motion.div>
 
               <motion.div
@@ -169,14 +149,13 @@ export default function Projects() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
-                className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8"
+                className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch mx-auto max-w-6xl"
               >
                 {personalProjects.map((project, index) => (
                   <ProjectCard 
                     key={project.id} 
                     project={project} 
                     index={index}
-                    featured
                     onViewDetails={setSelectedProject}
                   />
                 ))}
@@ -189,31 +168,67 @@ export default function Projects() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-20"
+            className="relative"
           >
-            <div className="p-4 sm:p-6 rounded-xl border border-gray-800 bg-gradient-to-br from-blue-500/10 to-transparent text-center">
-              <div className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 mb-1 sm:mb-2">
-                {academicProjects.length + personalProjects.length}
+            {/* Network nodes background (subtle) */}
+            <svg className="absolute inset-0 w-full h-full -z-10 pointer-events-none opacity-30" viewBox="0 0 1200 300" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1">
+                  <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.18" />
+                  <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.08" />
+                </linearGradient>
+              </defs>
+              <g stroke="url(#g1)" strokeWidth="1" fill="none">
+                <line x1="50" y1="40" x2="220" y2="120" />
+                <line x1="220" y1="120" x2="420" y2="30" />
+                <line x1="420" y1="30" x2="780" y2="90" />
+                <line x1="780" y1="90" x2="980" y2="40" />
+                <circle cx="50" cy="40" r="3" fill="#3b82f6" />
+                <circle cx="220" cy="120" r="4" fill="#06b6d4" />
+                <circle cx="420" cy="30" r="3" fill="#60a5fa" />
+                <circle cx="780" cy="90" r="3" fill="#06b6d4" />
+                <circle cx="980" cy="40" r="4" fill="#3b82f6" />
+              </g>
+            </svg>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-12 sm:mb-16 max-w-5xl mx-auto">
+              <div className="p-6 sm:p-8 rounded-2xl border border-gray-800 bg-[#071024]/60 text-center backdrop-blur-md">
+                <div className="text-3xl sm:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 mb-1 sm:mb-2">
+                  {academicProjects.length + personalProjects.length}
+                </div>
+                <div className="text-xs sm:text-sm text-gray-400">Projets réalisés</div>
               </div>
-              <div className="text-xs sm:text-sm text-gray-400">Projets réalisés</div>
+              <div className="p-6 sm:p-8 rounded-2xl border border-gray-800 bg-[#071024]/60 text-center backdrop-blur-md">
+                <div className="text-3xl sm:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 mb-1 sm:mb-2">10+</div>
+                <div className="text-xs sm:text-sm text-gray-400">Technologies</div>
+              </div>
+              <div className="p-6 sm:p-8 rounded-2xl border border-gray-800 bg-[#071024]/60 text-center backdrop-blur-md">
+                <div className="text-3xl sm:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 mb-1 sm:mb-2">2+</div>
+                <div className="text-xs sm:text-sm text-gray-400">Années d'expérience</div>
+              </div>
+              <div className="p-6 sm:p-8 rounded-2xl border border-gray-800 bg-[#071024]/60 text-center backdrop-blur-md">
+                <div className="text-3xl sm:text-4xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400 mb-1 sm:mb-2">
+                  {personalProjects.filter(p => p.status === 'En développement actif' || p.status === 'En développement').length}
+                </div>
+                <div className="text-xs sm:text-sm text-gray-400">En cours</div>
+              </div>
             </div>
-            <div className="p-4 sm:p-6 rounded-xl border border-gray-800 bg-gradient-to-br from-purple-500/10 to-transparent text-center">
-              <div className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400 mb-1 sm:mb-2">
-                10+
+
+            {/* Filter bar (wide) */}
+            <div className="max-w-6xl mx-auto mt-6 mb-12">
+              <div className="rounded-2xl bg-[#071024]/50 border border-gray-800/60 p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="text-left flex-1 min-w-0">
+                  <div className="text-xs uppercase text-gray-400 tracking-wide mb-2">Lecture par intention</div>
+                  <h3 className="text-lg sm:text-2xl font-bold text-white truncate">Filtre ton angle de lecture selon le besoin du recruteur</h3>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <button className="px-4 py-2 rounded-full bg-blue-500 text-white font-semibold">DevOps</button>
+                  <button className="px-4 py-2 rounded-full bg-white/5 text-gray-300">Réseau</button>
+                  <button className="px-4 py-2 rounded-full bg-white/5 text-gray-300">Système</button>
+                  <button className="px-4 py-2 rounded-full bg-white/5 text-gray-300">Sécurité</button>
+                </div>
               </div>
-              <div className="text-xs sm:text-sm text-gray-400">Technologies</div>
-            </div>
-            <div className="p-4 sm:p-6 rounded-xl border border-gray-800 bg-gradient-to-br from-green-500/10 to-transparent text-center">
-              <div className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-emerald-400 mb-1 sm:mb-2">
-                2+
-              </div>
-              <div className="text-xs sm:text-sm text-gray-400">Années d'expérience</div>
-            </div>
-            <div className="p-4 sm:p-6 rounded-xl border border-gray-800 bg-gradient-to-br from-orange-500/10 to-transparent text-center">
-              <div className="text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-red-400 mb-1 sm:mb-2">
-                {personalProjects.filter(p => p.status === 'En développement actif' || p.status === 'En développement').length}
-              </div>
-              <div className="text-xs sm:text-sm text-gray-400">En cours</div>
             </div>
           </motion.div>
 
