@@ -5,6 +5,7 @@ import { useState } from 'react'
 export default function Navbar() {
   const location = useLocation()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [logoError, setLogoError] = useState(false)
 
   const links = [
     { name: 'Home', path: '/' },
@@ -35,9 +36,19 @@ export default function Navbar() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95, rotate: 15 }}
-                className="w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-1000 bg-gradient-to-r from-blue-500 to-cyan-400"
+                className="w-9 h-9 rounded-full overflow-hidden flex items-center justify-center transition-colors duration-1000 bg-gradient-to-r from-blue-500 to-cyan-400"
+                aria-hidden
               >
-                <span className="text-black text-sm font-bold tracking-wider">AL</span>
+                {!logoError ? (
+                  <img
+                    src="/logo.svg"
+                    alt=""
+                    className="w-full h-full object-contain p-1"
+                    onError={() => setLogoError(true)}
+                  />
+                ) : (
+                  <span className="text-black text-sm font-bold tracking-wider">AL</span>
+                )}
               </motion.div>
               <span 
                 className="font-light text-lg tracking-wide hidden sm:block transition-colors duration-1000 text-white"
